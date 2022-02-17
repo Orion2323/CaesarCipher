@@ -87,9 +87,18 @@ def newChar(char,jumps):
 # end method
 
 # start program
-str_list = readFile()
+fileChoice = input("Do you want to read file? (y/n)\n")
+str_list = []
 
-key = 'b'
+if fileChoice.lower() == 'y':
+    str_list = readFile()
+    key = 'b'
+elif fileChoice.lower() == 'n':
+    text = input("Enter text to encrypt: ")
+    str_list.append(text)
+    key = 'b'
+else:
+    print("Invalid input!")
 
 cipher_list = ciphertext(str_list,key)
 print("Encrypted text:")
