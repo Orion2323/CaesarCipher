@@ -33,7 +33,7 @@ def ciphertext(str_list,key):
 
             # check if char is letter or number
             if c.isalpha() or c.isnumeric():
-                c = chr(ord(c) + shiftSize)       
+                c = newChar(c,shiftSize)     
             newline += c
 
         new_str_list.append(newline)    # add encypted line new_str_list
@@ -45,7 +45,7 @@ def ciphertext(str_list,key):
 def decipher(str_list,key):
     new_str_list = []
 
-    shiftSize = ord(key) - ord('a')
+    shiftSize = ord('a') - ord(key)
     # for-loop iterates through all lines
     for x in str_list:
         newline = ""
@@ -55,7 +55,7 @@ def decipher(str_list,key):
         for c in char_list:
             # check if char is a letter or number
             if c.isalpha() or c.isnumeric():
-                c = chr(ord(c) - shiftSize)
+                c = newChar(c,shiftSize)
 
             newline += c
         
@@ -64,13 +64,40 @@ def decipher(str_list,key):
     return new_str_list
 # end method
 
+# function that calculates ASCII code of new 
+def newChar(char,jumps):
+    newCharInt = ord(char) + jumps
+
+    if char.isupper():
+        if newCharInt > 90:
+            newCharInt -= 90
+            newCharInt += 65
+        elif newCharInt < 65:
+            newCharInt = 65 - newCharInt
+            newCharInt += 65
+    else:
+        if newCharInt > 122:
+            newCharInt -= 122
+            newCharInt += 96
+        elif newCharInt < 97:
+            newCharInt = 97 - newCharInt
+            newCharInt += 96
+
+    return chr(newCharInt)
+# end method
+
 # start program
 str_list = readFile()
 
-key = 'c'
+key = 'b'
+
 cipher_list = ciphertext(str_list,key)
-print(cipher_list)
+print("Encrypted text:")
+print(*cipher_list, sep = '\n')
+
+print()
 
 plain_text = decipher(cipher_list,key)
-print(plain_text)
+print("Decrypted text:")
+print(*plain_text,sep = '\n')
 # end program
