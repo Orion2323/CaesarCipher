@@ -113,9 +113,11 @@ def newChar(char,jumps):
 
 # start program
 correctInput = False
+# check if user typed in correct options
 while not (correctInput):
     fileChoice = input("Do you want to read file? (y/n)\n").lower()
     
+    # check if user input is a 'y' or 'n'
     if (fileChoice == 'y' or fileChoice == 'n'):
         correctInput = True
     else:
@@ -123,6 +125,7 @@ while not (correctInput):
 
 str_list = []
 
+# check if user wants to use input file or input custom plaintext
 if fileChoice.lower() == 'y':
     str_list = readFile()
     key = input("Enter a key: ")
@@ -133,12 +136,14 @@ elif fileChoice.lower() == 'n':
 else:
     print("Invalid input!")
 
+# encrypt plaintext
 cipher_list = ciphertext(str_list,key)
 print("Encrypted text:")
 print(*cipher_list, sep = '\n')
 
 print()
 
+#decrypt ciphertext
 plain_text = decipher(cipher_list,key)
 print("Decrypted text:")
 print(*plain_text,sep = '\n')
