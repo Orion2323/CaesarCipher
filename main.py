@@ -71,17 +71,17 @@ def newChar(char,jumps):
     if char.isupper():
         if newCharInt > 90:
             newCharInt -= 90
-            newCharInt += 65
+            newCharInt += 64
         elif newCharInt < 65:
-            newCharInt = 65 - newCharInt
-            newCharInt += 65
+            newCharInt = 64 - newCharInt
+            newCharInt = 90 - newCharInt
     else:
         if newCharInt > 122:
             newCharInt -= 122
             newCharInt += 96
         elif newCharInt < 97:
-            newCharInt = 97 - newCharInt
-            newCharInt += 96
+            newCharInt = 96 - newCharInt
+            newCharInt = 122 - newCharInt
 
     return chr(newCharInt)
 # end method
@@ -96,7 +96,7 @@ if fileChoice.lower() == 'y':
 elif fileChoice.lower() == 'n':
     text = input("Enter text to encrypt: ")
     str_list.append(text)
-    key = 'b'
+    key = input("Enter single letter key: ")
 else:
     print("Invalid input!")
 
