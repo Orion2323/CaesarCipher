@@ -88,7 +88,7 @@ str_list = []
 
 if fileChoice.lower() == 'y':
     str_list = readFile()
-    key = 'b'
+    key = input("Enter a key: ")
 elif fileChoice.lower() == 'n':
     text = input("Enter text to encrypt: ")
     str_list.append(text)
