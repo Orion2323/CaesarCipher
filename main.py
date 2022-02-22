@@ -3,12 +3,22 @@
 # @date: 2/15/2022
 
 from fileinput import close
+from genericpath import exists
 from hashlib import new
+from os.path import exists
 
 # function that reads input from a txt file
 def readFile():
-    # Open input file stream
-    input_file = open('input.txt','r')
+    fileName = input("Enter file name: ")
+
+    # while-loop iterates until user types a valid input file name
+    while not (exists(fileName)):
+        print("File not found!")
+        fileName = input("Enter file name: ")
+
+    
+    input_file = open(fileName,'r')
+
     str_list = [line.strip('\n') for line in input_file]
 
     # close input file stream
