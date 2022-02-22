@@ -9,5 +9,5 @@
 
 # Log
   2/21:
-    - Able to use multi-character string as a key for encryption and decryption
-    - Able to use multiple strings as a key for encryption and decryption
+  - Able to use multi-character string as a key for encryption and decryption
+  - Able to use multiple strings as a key for encryption and decryption
