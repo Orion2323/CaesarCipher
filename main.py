@@ -15,10 +15,8 @@ def readFile():
     while not (exists(fileName)):
         print("File not found!")
         fileName = input("Enter file name: ")
-
     
-    input_file = open(fileName,'r')
-
+    input_file = open(fileName,'r') # open file
     str_list = [line.strip('\n') for line in input_file]
 
     # close input file stream
