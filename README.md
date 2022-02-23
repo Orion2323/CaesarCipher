@@ -11,6 +11,7 @@
   2/21:
   - Able to use multi-character string as a key for encryption and decryption
   - Able to use multiple strings as a key for encryption and decryption
-  2/22:
+  
+ 2/22:
   - Turned encryption and decryption into separate objects
   - Turned new char generation into an object
